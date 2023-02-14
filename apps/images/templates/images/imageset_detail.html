@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ imageset.name }} - ImageSet
+{% endblock title %}
+
+{% block content %}
+<div class="col-md-10 mx-4">
+    <div class="card">
+    <div class="card-header">
+        {{ imageset.name|capfirst }} - Imageset
+    </div>
+    <div class="card-body">
+       <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Uploaded by</b>: {{ imageset.user|capfirst }}</li>
+            <li class="list-group-item"><b>Total images</b>: {{ imageset.images.count }}</li>
+            <li class="list-group-item"><b>Description</b>: {{ imageset.description }}</li>
+            <li class="list-group-item"><b>Created on</b>: {{ imageset.created }}</li>
+            <li class="list-group-item"><b>Updated on</b>: {{ imageset.modified }}</li>
+        </ul>
+        {% if imageset.user == request.user %}
+            <a href="{% url 'images:upload_images_url' imageset.id %}" class="btn btn-outline-info btn-sm">Upload images</a>
+            <a href="{% url 'images:imageset_update_url' imageset.id %}" class="btn btn-outline-info btn-sm">Update ImageSet</a>
+            {% if imageset.images.count > 0 %}
+                <a href="{% url 'images:images_list_url' imageset.id %}" class="btn btn-outline-info btn-sm">View Images</a>
+            {% endif %}
+        {% elif imageset.public and imageset.images.count > 0 %}
+            <a href="{% url 'images:images_list_url' imageset.id %}" class="btn btn-outline-info btn-sm">View Images</a>
+        {% endif %}
+    </div>
+    </div>    
+</div>
+{% endblock content %}
+
+{% block shared_data %}
+    {{ orig_image.id|json_script:"imageId" }}
+{% endblock shared_data %}
+

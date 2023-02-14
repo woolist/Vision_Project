@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home Page
+{% endblock title %}
+
+{% block content %}
+<div class="col-md-12 mt-2">
+    <div class="card">
+    <h4 class="card-header">반도체 불량검출</h4>
+    <div class="card-body">
+        <h5 class="card-title">webapp 기능:</h5>
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">이미지 업로드: 
+                <a href="{% url 'images:imageset_create_url' %}" class="btn btn-sm btn-outline-success" type="button">Create Imageset</a>
+                {% if user_imagesets %}
+                <a href="{% url 'images:imageset_list_url' %}" class="btn btn-sm btn-outline-success" type="button">My ImageSets List</a>
+                {% endif %}
+                {% if public_imagesets %}
+                <a href="{% url 'images:imageset_list_url' %}" class="btn btn-sm btn-outline-success" type="button">Public ImageSets List</a>
+                {% endif %}
+            </li>
+            <li class="list-group-item">사전훈련된 모델 업로드: 
+                <a href="{% url 'modelmanager:mlmodel_upload_url' %}" class="btn btn-sm btn-outline-success" type="button">사전훈련된 모델</a>
+                <a href="{% url 'modelmanager:public_mlmodel_list_url' %}" class="btn btn-sm btn-outline-success" type="button">모델 목록</a>
+            </li>
+            <li class="list-group-item">Dashboard:
+                <a href="{% url 'dashboard:dashboard_url' %}" class="btn btn-sm btn-outline-success" type="button">Dashboard</a>
+            </li>
+        </ul>
+    </div>
+    </div>
+</div>  
+{% endblock content %}

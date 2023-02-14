@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static crispy_forms_tags %}
+
+{% block title %}
+Create images set
+{% endblock title %}
+
+{% block leftbar %}
+<div class="col-md-3">
+    {% include 'images/partials/_leftbar.html' %}
+</div>
+{% endblock leftbar %}
+
+{% block content %}
+    <div class="col-md-7">
+        <legend class="border-bottom">
+        {% if 'update' in request.path %}
+            Update
+        {% else %}
+            Create
+        {% endif %}
+             Image Set
+        </legend>
+        <form action="" method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-sm btn-outline-info mt-2">
+            {% if 'update' in request.path %}
+                Update
+            {% else %}
+                Create
+            {% endif %}
+            </button>
+        </form>
+    </div>
+{% endblock content %}
