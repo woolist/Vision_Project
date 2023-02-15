@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/starter-template.css" rel="stylesheet">
+
+    <title>Semi-conductor Detector</title>
+  </head>
+      <!-- Navigation-->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">반도체 결함 탐지 시스템</div>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="http://127.0.0.1:5000/">Home</a></li>
+              <li class="active"><a href="http://127.0.0.1:5000/description">Description</a></li>
+              <li class="active"><a href="http://127.0.0.1:5000/detect">Detect</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+   
+  <body class="text-center">
+    <form class="form-signin" method=post enctype=multipart/form-data>
+<!--        <h1 class="h3 mb-3 font-weight-normal">회로패턴검사</h1>-->
+        <img class="mb-4" src="/static/cakd5.png" alt="" width="300">
+        <img class="mb-4" src="/static/logo.png" alt="" width="300">
+
+        <p><input type="file" name="file" class="form-control-file" id="inputfile" multiple><p>
+        <br/>
+        <p><input type="reset"><p>
+        <br/>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">검사하기</button>
+        <p class="mt-5 mb-3 text-muted">cakd5 2차프로젝트 3조 영상이미지팀</p>
+    </form>
+    <script src="//code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $('#inputfile').bind('change', function() {
+          let fileSize = this.files[0].size/1024/1024; // this gives in MB
+          if (fileSize > 1) {
+            $("#inputfile").val(null);
+            alert('file is too big. images more than 1MB are not allowed')
+            return
+          }
+          let ext = $('#inputfile').val().split('.').pop().toLowerCase();
+          if($.inArray(ext, ['jpg','jpeg']) == -1) {
+            $("#inputfile").val(null);
+            alert('only jpeg/jpg files are allowed!');
+          }
+      });
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.1.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/uploadr.js') }}"></script>
+
+  </body>
+</html>
