@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://bootstrapk.com/favicon.ico">
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/starter-template.css" rel="stylesheet">
+
+    <title>Semi-conductor Detector</title>
+
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">반도체 결함 탐지 시스템</div>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="http://127.0.0.1:5000/">Home</a></li>
+              <li><a href="http://127.0.0.1:5000/description">Description</a></li>
+              <li class="active"><a href="http://127.0.0.1:5000/labels">Labels</a></li>
+              <li><a href="http://127.0.0.1:5000/detect">Detect</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+
+<body>
+    <div class="container">
+    <div class="starter-template">
+        <center><h1> labels </h1><br>
+            <div>
+                <div style="float: left">
+                  <img src="{{url_for('static', filename='img/circle.png')}}">
+                  <div>
+                    circle
+                  </div>
+                  <p>
+                    전자 칩을 제조하는 과정에서 일어나는 결함
+                  </p>
+
+
+                  <div style="float: left">
+                    <img src="{{url_for('static', filename='img/cut.png')}}">
+                    <div>
+                    cut
+                  </div>
+                  <p>
+                    오염, 취급문제 장비 오작동
+                  </p>
+
+                  <div style="float: left">
+                  <img src="{{url_for('static', filename='img/dcircle.png')}}">
+                  <div>
+                    dcircle
+                  </div>
+                  <p>
+                    반도체 회로 그리는 공정에서 정렬불량, 금속층의 두께 변화, 불균일일한 증착, 식각 공정 이유
+                  </p>
+
+
+                  <img src="{{url_for('static', filename='img/hcircle.png')}}">
+                  <div>
+                    hcircle
+                  </div>
+                  <p>
+                    반도체 회로 그리는 공정에서 정렬불량, 금속층의 두께 변화, 불균일일한 증착, 식각 공정 이유
+                   <p/>
+
+                  <img src="{{url_for('static', filename='img/out.png')}}">
+                  <div>
+                    out
+                  </div>
+                  <p>반도체 장치 내부의 전기 회로에서 특정 전압 및 전류 조건에서 회로가 일정하지 않은 현상
+                  </p>
+
+                  <img src="{{url_for('static', filename='img/cutoff.png')}}">
+                  <div>
+                    cutoff
+                  </div>
+                  <p>회로에 전압이 일정하지 않은 곳에서 전류가 증가하여 장치작동에 영향을 미침</p>
+
+                  <img src="{{url_for('static', filename='img/dsquare.png')}}">
+                  <div>
+                    dsquare
+                  </div>
+                  <p>반도체 회로 그리는 공정에서 정렬불량, 금속층의 두께 변화, 불균이한 증착, 식각 공정 이유</p>
+                  
+                  <img src="{{url_for('static', filename='img/fat.png')}}">
+                  <div>
+                    fat
+                  </div>
+                  <p>반도체 회로 그리는 공정에서 정렬 불량, 웨이퍼 표면의 오염물질, 금속층의 두께 편차이유로 발생</p>
+                  
+                  <img src="{{url_for('static', filename='img/thin.png')}}">
+                  <div>
+                    thin
+                  </div>
+                  <p>반도체 회로 그리는 공정에서 정렬불량, 금속층의 두께편차, 증착공정의 결함으로 발생</p>
+                  
+                  <img src="{{url_for('static', filename='img/dot.png')}}">
+                  <div>
+                    dot
+                  </div>
+                  <p>제조과정에서, 전자 칩이나 이미지 센서 등에서 발생</p>
+                  
+                  <img src="{{url_for('static', filename='img/bdot.png')}}">
+                  <div>
+                    bdot
+                  </div>
+                  <p>물체 표면에서의 작은 불완전부분</p>
+
+                  <img src="{{url_for('static', filename='img/curve.png')}}">
+                  <div>
+                    curve
+                  </div>
+                  <p>오염, 취급문제, 장비 오작동 이유</p>
+
+                  <img src="{{url_for('static', filename='img/short.png')}}">
+                  <div>
+                    short
+                  </div>
+                  <p>반도체 회로 그리는 공정에서 정렬불량, 웨이퍼표면의 오염, 다이싱 또는 패키징 공정의 손상</p>
+
+                  <img src="{{url_for('static', filename='img/scratch.png')}}">
+                  <div>
+                    scratch
+                  </div>
+                  <p>오염, 취급문제, 장비 오작동 이유</p>
+
+                </div>
+              </div> 
+    </div>
+    </div>          
+</body>
+
+
+
+
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="/static/js/jquery.min.js"></script>
+      <script src="/static/js/bootstrap.min.js"></script>
+</body>
+</html>

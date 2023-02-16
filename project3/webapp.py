@@ -24,8 +24,10 @@ def DeleteAllFiles(filePath):
     if os.path.exists(filePath):
         for file in os.scandir(filePath):
             os.remove(file.path)
-            
+ 
 app = Flask(__name__)
+
+
 
 @app.route("/detect", methods=["GET", "POST"])
 def predict():
@@ -89,6 +91,10 @@ def home():
 @app.route('/description')
 def description():
     return render_template('description.html')
+
+@app.route('/labels')
+def labels():
+    return render_template('labels.html')
 
 @app.route('/login')
 def login():
