@@ -32,8 +32,8 @@ app = Flask(__name__)
 @app.route("/detect", methods=["GET", "POST"])
 def predict():
     if request.method == "POST":
-        DeleteAllFiles('/static/aft')  #파일 업로드 후 새로 검사 시작할 때마다 폴더 내 파일 삭제
-        DeleteAllFiles('/static/bef')  # 경로설정필요
+        DeleteAllFiles('C:/Users/user/project3/Vision_Project/project3/static/aft')  #파일 업로드 후 새로 검사 시작할 때마다 폴더 내 파일 삭제
+        DeleteAllFiles('C:/Users/user/project3/Vision_Project/project3/static/bef')  # 경로설정필요
         
         # 다중파일 업로드
         if "file" not in request.files:
