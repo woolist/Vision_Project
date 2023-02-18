@@ -29,6 +29,10 @@
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
         }
+        
+      }
+      .btn-info{
+        margin-left: 725px;
       }
     </style>
     <!-- <link rel="stylesheet" href="/static/style.css"> -->
@@ -36,7 +40,7 @@
     <title>Semi-conductor Detector</title>
   </head>
       <!-- Navigation-->
-      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <nav class="navbar navbar-success navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -45,7 +49,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <div class="navbar-brand">반도체 결함 탐지 시스템</div>
+            <!-- <div class="navbar-brand">반도체 결함 탐지 시스템</div> -->
           </div>
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -60,16 +64,19 @@
    
   <body class="text-center">
     <form class="form-signin" method=post enctype=multipart/form-data>
-<!--        <h1 class="h3 mb-3 font-weight-normal">회로패턴검사</h1>-->
-        <img class="mb-4" src="/static/cakd5.png" alt="" width="300">
-        <img class="mb-4" src="/static/logo.png" alt="" width="300">
+       <h1 class="h3 mb-3 font-weight-normal">회로패턴검사</h1>
+        <!-- <img class="mb-4" src="/static/cakd5.png" alt="" width="300"> -->
+        <img class="mb-4" src="/static/img/detect_img.jpg" alt="" width="300">
+        <br>
 
-        <p><input type="file" name="file" class="form-control-file" id="inputfile" multiple><p>
+        <p><input type="file" name="file" class="btn btn-info" id="inputfile" multiple></p>
+        
+
+        <p><input type="reset"></p>
         <br/>
-        <p><input type="reset"><p>
-        <br/>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">검사하기</button>
-        <p class="mt-5 mb-3 text-muted">cakd8 3차 프로젝트 4조 반도체 결함 탐지</p>
+        <button class="btn btn-secondary" type="submit">검사하기</button>
+        <br>
+        <p class="mt-5 mb-3 text-muted"><br>cakd8 3차 프로젝트 4조 반도체 결함 탐지</p>
     </form>
     <script type="text/javascript">
       $('#inputfile').bind('change', function() {

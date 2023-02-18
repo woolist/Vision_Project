@@ -87,7 +87,7 @@ padding: 30px;
     top:50%;
     margin-left:-750px;
     margin-top:-275px;
-    background-color: #c3b9ee;
+    background-color: #93C6E7;
     /* border : 3px solid #120562; */
     border-radius : 20px;
 }
@@ -111,7 +111,7 @@ padding: 30px;
     top:50%;
     margin-left : -100px;
     margin-top : -100px;
-    background-color: #eec565;
+    background-color: #97C6D6;
     /* border : 1px solid black; */
     border-radius : 20px;
 }
@@ -125,6 +125,7 @@ padding: 30px;
     margin-top : -25px;
     border-radius : 20px;
 }
+/* 수율 추가 */
 /* .percent{
     width:350px;
     height:100px;
@@ -137,7 +138,7 @@ padding: 30px;
 } */
 
 .button {
-    background-color: #dd91c1;
+    background-color: #FFAACF;
     border: none;
     color: white;
     padding: 15px 30px;
