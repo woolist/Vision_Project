@@ -85,9 +85,9 @@ padding: 30px;
     position:absolute;
     left:50%;
     top:50%;
-    margin-left:-750px;
-    margin-top:-275px;
-    background-color: #93C6E7;
+    margin-left:-650px;
+    margin-top:-250px;
+    background-color: #7FBCD2;
     /* border : 3px solid #120562; */
     border-radius : 20px;
 }
@@ -115,27 +115,28 @@ padding: 30px;
     /* border : 1px solid black; */
     border-radius : 20px;
 }
-.buttoncon{
-    width:350px;
+.rate{
+    width:700px;
     height:100px;
     position:absolute;
     left:50%;
     top:50%;
-    margin-left : 77px;
-    margin-top : -25px;
+    margin-left : -100px;
+    margin-top : 10px;
+    background-color: #ABC270;
+    /* border : 1px solid black; */
     border-radius : 20px;
 }
-/* 수율 추가 */
-/* .percent{
+.buttoncon{
     width:350px;
-    height:100px;
+    height:50px;
     position:absolute;
     left:50%;
     top:50%;
     margin-left : 77px;
-    margin-top : -25px;
+    margin-top : 90px;
     border-radius : 20px;
-} */
+}
 
 .button {
     background-color: #FFAACF;
@@ -151,6 +152,22 @@ padding: 30px;
     margin: 4px 2px;
     cursor: pointer;
 }  
+
+.background-images {
+    background-images: url('/static/img/backgroud.jpg'):
+    background-size: cover;
+}
+
+footer {
+    position: absolute;
+    height: 60px;
+    width: 100%;
+    padding: 0 25px;
+    line-height: 60px;
+    color: #8a8c8f;
+    border-top: 1px solid #dee5e7;
+    background-color: #f2f2f2;
+  }
 
 /* .mainpage{
     margin : 200px; 

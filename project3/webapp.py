@@ -80,8 +80,11 @@ def predict():
             
             print(pf)
             print("파일1 :",firstimage)
+            datanum = len(pf)
+            rate = round(pf.count('PASS') / len(pf), 3)
+            correct = pf.count('PASS')
             
-        return render_template("imageshow.html",files=files,pf=pf,firstimage=firstimage,enumerate=enumerate,len=len)
+        return render_template("imageshow.html",files=files,pf=pf,datanum=datanum,rate=rate,correct=correct,firstimage=firstimage,enumerate=enumerate,len=len)
     return render_template("detect.html")
 
 @app.route('/')
@@ -107,7 +110,7 @@ if __name__ == "__main__":
 
 # local model
     model = torch.hub.load(
-        'ultralytics/yolov5', 'custom', 'semi_best_0904.pt', autoshape=True,
+        'ultralytics/yolov5', 'custom', 'yolov5l-best-230214.pt', autoshape=True,
     )
     model.eval()
 
