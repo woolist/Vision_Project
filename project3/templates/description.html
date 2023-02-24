@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://bootstrapk.com/favicon.ico">
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/starter-template.css" rel="stylesheet">
+
+    <title>Semi-conductor Detector</title>
+
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-success navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- <div class="navbar-brand">반도체 결함 탐지 시스템</div> -->
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="http://127.0.0.1:5000/">Home</a></li>
+              <li class="active"><a href="http://127.0.0.1:5000/description">Description</a></li>
+              <li><a href="http://127.0.0.1:5000/labels">Labels</a></li>
+              <li><a href="http://127.0.0.1:5000/detect">Detect</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="starter-template">
+          <center><h1> <b>반도체 공정도</b> </h1><br>
+          <img src="{{url_for('static', filename='img/P1.PNG')}}"><br>
+          <br>
+          <h3><b>EDS에서 불량 선별</b></h3>
+          <br>
+          <h4>EDS 공정 - 웨이퍼가 포함하고 있는 반도체 칩의 불량을 선별하는 공정<h4>
+          <h4>AI를 활용하여 수율 향상 및 비용 감소</h4>
+          <br><br><br>
+        </div>
+      </div>
+      
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="/static/js/jquery.min.js"></script>
+      <script src="/static/js/bootstrap.min.js"></script>
+      
+      <footer class="footer" style="
+      text-align: center;
+      bottom: 0;">
+        <p>Copyright © 2023 cakd8 4조 All rights reserved.       
+          <a href="https://github.com/woolist/Vision_Project.git">Git</a>
+        </p>
+      </footer>
+
+</body>
+</html>

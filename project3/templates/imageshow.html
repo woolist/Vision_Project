@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>CAKD8</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <style>{
+        font-family: 'Do Hyeon', sans-serif;
+        }
+    </style>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename = 'showstyle.css') }}"
+    />
+    <!-- 부트스트랩 링크 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      var num = 0;
+      var filelist = {{files|tojson}} ;     
+      var resultlist = {{pf|tojson}} ;  
+      var maxnum = filelist.length ;
+      var counter = {{resultlist|tojson}};  
+
+      function changePic(idx) { ///idx라는 매개변수를 사용한 changePic 이름의 함수 생성
+        if (idx) {
+          if (num==maxnum-1) return; //num이 maxnum일때 num++ 이전에 강제종료 
+          num++; //다음 버튼을 누르면 idx값이 1이 되어 num의 값이 1만큼 증가
+        } else {
+          if (num == 0) return; //num이 0일때 num-- 이전에 강제종료
+          num--; //이전 버튼을 누르면 idx값이 0이 되어 num의 값이 1만큼 감소
+        }
+        var imgTag = document.getElementById("photo");
+        var file_url = "static/aft/"+ filelist[num] ;
+        imgTag.setAttribute("src", file_url ); //id값이 photo인 이미지태그 선택 후,//src 속성값을 수정
+        
+        document.getElementById("imgname").textContent= filelist[num];     //id값이 imgname인 값 선택 후, 내용 수정
+        document.getElementById("resultlabel").textContent= resultlist[num];
+        document.getElementById("defect").textContent= counter[num];     //id값이 resultlabel인 값 선택 후, 내용 수정
+        document.getElementById("count").textContent= String(num+1)+'/'+String(maxnum);     //id값이 count인 값 선택 후, 내용 수정
+      }
+    </script>
+  </head>
+
+  <body>
+    <div  id="text-center">
+      
+      <div class="mainpage">
+
+        <div class="leftpage">
+          <h3>테스트결과</h3>
+          <p><img src= {{firstimage}} id="photo" alt="이미지" width="400"></p>   <!--첫페이지 이미지 불러오기-->
+          <h4 id="count">1/{{len(files)}}</h4>  
+        </div>
+
+        <div class="filetitle">
+          <h3> 파일명 </h3>
+          <h4 id="imgname">{{files[0]}}</h4>   <!--첫페이지 파일명 불러오기-->
+        </div>
+
+        <div class="resultpage">
+          <h3> 검사 결과 : </h3>
+          <h4 id="resultlabel">{{pf[0]}}</h4>    <!--첫페이지 결과값 불러오기-->
+        </div>
+
+        <div class="defectlist">
+          <h3> 결함 종류 : <h3>
+          <h4 id="defect">{{resultlist[0]}}</h4>
+        </div>
+
+        <div class="rate">
+          <h3> 수율 : {{rate}}</h3>
+          <h4 id="ratelabel">({{correct}} / {{datanum}})</h4>    <!--첫페이지 결과값 불러오기-->
+        </div>
+
+        <div class="buttoncon">
+          <p>
+            <button class="button" onclick="changePic(0);">이전</button>    <!--버튼-->
+            <button class="button" onclick="changePic(1);">다음</button>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+
+    <footer class="footer" style="
+    text-align: center;
+    bottom: 0;">
+      <p>Copyright © 2023 cakd8 4조 All rights reserved.       
+        <a href="https://github.com/woolist/Vision_Project.git">Git</a>
+      </p>
+    </footer>
+</body>
+</html>
