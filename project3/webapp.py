@@ -16,6 +16,8 @@ from PIL import Image
 from uuid import uuid4
 import torch
 from flask import Flask, render_template, request, redirect, url_for, session
+from ast import literal_eval
+import collections
 import numpy as np
 import sys
 
@@ -32,8 +34,8 @@ app = Flask(__name__)
 @app.route("/detect", methods=["GET", "POST"])
 def predict():
     if request.method == "POST":
-        DeleteAllFiles('C:/Users/user/project3/Vision_Project/project3/static/aft')  #파일 업로드 후 새로 검사 시작할 때마다 폴더 내 파일 삭제
-        DeleteAllFiles('C:/Users/user/project3/Vision_Project/project3/static/bef')  # 경로설정필요
+        DeleteAllFiles('C:/Users/admin/project3/project/project3/project3/static/aft')  #파일 업로드 후 새로 검사 시작할 때마다 폴더 내 파일 삭제
+        DeleteAllFiles('C:/Users/admin/project3/project/project3/project3/static/bef')  # 경로설정필요
         
         # 다중파일 업로드
         if "file" not in request.files:
@@ -41,7 +43,8 @@ def predict():
         file = request.files.getlist("file")
         if not file:
             return
-
+        
+        resultlist=[]
         pf=[]
         for file in file:
             filename = file.filename.rsplit("/")[0]     #파일경로에서 파일명만 추출
@@ -54,14 +57,22 @@ def predict():
             print('원본 저장')
 
             results = model(img, size=640)
+            results_list = results.pandas().xyxy[0].to_json(orient="records")
+            results_list = literal_eval(results_list)
+            classes_list = [item["name"] for item in results_list]
+            result_counter = collections.Counter(classes_list)
+            
             results.render()  # results.imgs에 바운딩박스와 라벨 처리
-            data = results.pandas().xyxy[0][['name']].values.tolist()   # results.imgs의 name값만 가져오기
-            print("데이터:",data)
 
             for img in results.ims:
                 img_base64 = Image.fromarray(img)
                 img_base64.save(f"static/aft/{filename}", format="JPEG")
                 print('디텍트 저장')
+
+            resultlist.append(json.dumps(dict(result_counter)))
+
+            data = results.pandas().xyxy[0][['name']].values.tolist()   # results.imgs의 name값만 가져오기
+            print("데이터:",data)
 
             if len(data) == 0:
                 pf.append("PASS")    # data 리스트의 값이 0이면 양품으로 pass
@@ -76,15 +87,18 @@ def predict():
                 fname = file.split(os.sep)[-1]
                 files.append(fname)
             print("파일스 :",files)
-            firstimage = "static/aft/"+files[0]
             
-            print(pf)
-            print("파일1 :",firstimage)
+            if len(files)>0:
+                firstimage = "static/aft/"+files[0]
+            else: pass
+
             datanum = len(pf)
             rate = round(pf.count('PASS') / len(pf), 3)
             correct = pf.count('PASS')
             
-        return render_template("imageshow.html",files=files,pf=pf,datanum=datanum,rate=rate,correct=correct,firstimage=firstimage,enumerate=enumerate,len=len)
+            print(resultlist)
+        return render_template("imageshow.html",files=files,resultlist=resultlist, pf=pf,datanum=datanum,rate=rate,correct=correct,
+                                firstimage=firstimage,enumerate=enumerate,len=len, results_list=results_list)
     return render_template("detect.html")
 
 @app.route('/')

@@ -122,8 +122,20 @@ padding: 30px;
     left:50%;
     top:50%;
     margin-left : -100px;
-    margin-top : 10px;
+    margin-top : 120px;
     background-color: #ABC270;
+    /* border : 1px solid black; */
+    border-radius : 20px;
+}
+.defectlist{
+    width:700px;
+    height:100px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left : -100px;
+    margin-top : 10px;
+    background-color: #efb160;
     /* border : 1px solid black; */
     border-radius : 20px;
 }
@@ -134,7 +146,7 @@ padding: 30px;
     left:50%;
     top:50%;
     margin-left : 77px;
-    margin-top : 90px;
+    margin-top : 200px;
     border-radius : 20px;
 }
 

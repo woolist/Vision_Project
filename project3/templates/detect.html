@@ -29,10 +29,16 @@
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
         }
-        
       }
+
       .btn-info{
-        margin-left: 725px;
+        margin: auto;
+        padding: 6px 17px;
+      }
+
+      footer {
+        margin: auto;
+        position: center;
       }
     </style>
     <!-- <link rel="stylesheet" href="/static/style.css"> -->
@@ -64,13 +70,12 @@
    
   <body class="text-center">
     <form class="form-signin" method=post enctype=multipart/form-data>
-       <h1 class="h3 mb-3 font-weight-normal">회로패턴검사</h1>
+       <h1 class="h3 mb-3 font-weight-normal"><b>회로패턴검사</b></h1>
         <!-- <img class="mb-4" src="/static/cakd5.png" alt="" width="300"> -->
         <img class="mb-4" src="/static/img/detect_img.jpg" alt="" width="300">
         <br>
-        <p><input type="file" name="file" class="btn btn-info" id="inputfile" multiple></p>
+        <p id="input"><input type="file" name="file" class="btn btn-info mb-4" id="inputfile" width="400" multiple></p>
         
-
         <p><input type="reset"></p>
         <br/>
         <button class="btn btn-secondary" type="submit">검사하기</button>
@@ -103,10 +108,11 @@
     <script src="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
     
     <footer class="footer" style="
-    position: absolute;
+    text-align: center;
     bottom: 0;">
-      <p>Copyright © 2023 cakd8 4조 All rights reserved.</p>
-      <address>git adress : https://github.com/woolist/Vision_Project.git</address>
+      <p>Copyright © 2023 cakd8 4조 All rights reserved.       
+        <a href="https://github.com/woolist/Vision_Project.git">Git</a>
+      </p>
     </footer>
   </body>
   </html>
